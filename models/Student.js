@@ -16,22 +16,12 @@ const StudentSchema = mongoose.Schema({
     enum: ['AUT', 'BIO', 'CHE', 'CIV', 'CSE', 'ECE', 'EEE', 'INT', 'MEC'],
   },
 
-  gdDate: {
-    type: Date,
-  },
-
   member: {
     type: mongoose.Schema.ObjectId,
     ref: 'Member',
     required: true,
   },
-
-  gdCompleted: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
 });
 
-const Student = mongoose.model('Student', StudentSchema, 'students');
+const Student = mongoose.model('Student', StudentSchema, 'Students');
 module.exports = Student;

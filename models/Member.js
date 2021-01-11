@@ -20,11 +20,7 @@ const MemberSchema = mongoose.Schema({
     required: true,
     minlength: 6,
   },
-
-  gdDates: {
-    type: [Date],
-  },
 });
 
-const Member = mongoose.model('Member', MemberSchema, 'members');
+const Member = mongoose.model('Member', MemberSchema, 'Members');
 module.exports = Member;

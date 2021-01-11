@@ -1,0 +1,23 @@
+<!-- New Student Modal -->
+<div class="modal fade" id="newStudent">
+  <div class="modal-dialog form-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Student</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form method="POST" action="" class="validated-form" novalidate>
+          <%- include("../../partials/form_fields.ejs"); %>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Save Student</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

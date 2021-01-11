@@ -1,0 +1,17 @@
+<% layout("layouts/boilerplate") -%>
+
+<main class="container">
+  <div class="row mt-5">
+    <div class="col-md-10 m-auto">
+      <%- include("../partials/flash.ejs") %>
+      <h1 class="mt-4 text-center">DASHBOARD</h1>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#newStudent">
+    New Student
+  </button>
+</main>
+
+<%- include("./modals/new.ejs") %> 
+<%- include("./modals/edit.ejs") %>
+<%- include("./modals/delete.ejs") %>

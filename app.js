@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config();
 const colors = require('colors');
 const morgan = require('morgan');
 const session = require('express-session');
+const passport = require('passport');
 const flash = require('connect-flash');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
@@ -14,6 +15,11 @@ const Student = require('./models/Student');
 
 const memberRouter = require('./routes/members');
 const studentRouter = require('./routes/students');
+
+const { isLoggedIn } = require('./middleware');
+
+// Passport Config
+require('./config/passport')(passport);
 
 const app = express();
 
@@ -48,13 +54,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 // express-session middleware
 const sessionConfig = {
   secret: process.env.SESSION_SECRET,
-  resave: false,
+  resave: true,
   saveUninitialized: true,
-  cookie: {
-    httpOnly: true,
-    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-  },
 };
 app.use(session(sessionConfig));
 
@@ -68,12 +69,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', async (req, res, next) => {
-  const students = await Student.find({}).sort('-createdAt');
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/', isLoggedIn, async (req, res, next) => {
+  const students = await Student.find({ member: req.user._id }).sort('-createdAt');
+  console.log(students);
   res.render('students/index', { students });
 });
 
-app.route('/', (req, res, next) => {});
 app.use('/members', memberRouter);
 app.use('/students', studentRouter);
 

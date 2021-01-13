@@ -75,8 +75,7 @@ app.use(passport.session());
 
 app.get('/', isLoggedIn, async (req, res, next) => {
   const students = await Student.find({ member: req.user._id }).sort('-createdAt');
-  console.log(students);
-  res.render('students/index', { students });
+  res.render('students/index', { students, member: req.user });
 });
 
 app.use('/members', memberRouter);

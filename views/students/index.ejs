@@ -5,12 +5,14 @@
     <div class="col-md-12 m-auto"><%- include("../partials/flash.ejs") %></div>
   </div>
   <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#newStudent">New Student</button>
+  <a href="members/logout" class="btn btn-dark float-right">Logout</a>
 
-  <div class="row">
+  <% if(students && students.length) { %> 
+  <div class="row">  
+
     <% students.forEach((student, index) => { %>
-
     <div class="col-md-4 col-sm-6">
-      <div class="card <%= student.gdCompleted %>">
+      <div class="card <%= student.gdCompleted %>" style="width: 23rem;">
         <div class="card-body">
           <h5 class="card-title"><%= student.name %> (<%= student.registerNum %>)</h5>
           <p class="card-subtitle"><%= student.department %></p>
@@ -20,7 +22,7 @@
           <% const sum = parseInt(student.scores["subjectKnowledge"]) + parseInt(student.scores["communicationSkills"])
           + parseInt(student.scores["bodyLanguage"]) + parseInt(student.scores["listeningSkills"]) +
           parseInt(student.scores["criticalThinking"]) + parseInt(student.scores["leadershipSkills"]) %>
-          <li class="list-group-item">Total Score : <%= sum %> / 30</li>
+          <li class="list-group-item"><b>Total Score : </b><%= sum %> / 30</li>
           <div class="card-body">
             <button
               type="button"
@@ -49,6 +51,9 @@
 
     <% }); %>
   </div>
+  <% } else { %> 
+    <p>You have not created any students yet.</p>
+  <% } %> 
 </main>
 
 <%- include("./modals/new.ejs") %> 

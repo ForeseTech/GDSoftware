@@ -13,7 +13,7 @@ const createStudent = async (req, res, next) => {
 
   const student = await Student.create({ registerNum, name, department, scores, gdCompleted });
 
-  req.flash('success', 'Student Added Successfully');
+  req.flash('success', 'Student Successfully Created');
   res.redirect('/');
 };
 

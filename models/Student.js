@@ -15,6 +15,7 @@ const StudentSchema = mongoose.Schema(
     department: {
       type: String,
       enum: ['AUT', 'BIO', 'CHE', 'CIV', 'CSE', 'ECE', 'EEE', 'INT', 'MEC'],
+      required: true,
     },
 
     scores: {

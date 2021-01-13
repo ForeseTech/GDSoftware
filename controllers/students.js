@@ -11,7 +11,7 @@ const createStudent = async (req, res, next) => {
   scores['criticalThinking'] = req.body.criticalThinking ? req.body.criticalThinking : 0;
   scores['leadershipSkills'] = req.body.leadershipSkills ? req.body.leadershipSkills : 0;
 
-  const student = await Student.create({ registerNum, name, department, scores, gdCompleted });
+  const student = await Student.create({ registerNum, name, department, scores, gdCompleted, member: req.user._id });
 
   req.flash('success', 'Student Successfully Created');
   res.redirect('/');

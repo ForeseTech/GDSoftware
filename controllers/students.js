@@ -18,7 +18,12 @@ const createStudent = async (req, res, next) => {
 };
 
 const updateStudent = async (req, res, next) => {
-  const { registerNum, name, department, gdCompleted } = req.body;
+  const { registerNum, name, department } = req.body;
+  let { gdCompleted } = req.body;
+
+  if (gdCompleted == null) {
+    gdCompleted = false;
+  }
 
   let scores = {};
   scores['subjectKnowledge'] = req.body.subjectKnowledge ? req.body.subjectKnowledge : 0;

@@ -1,0 +1,56 @@
+<% layout("layouts/boilerplate") -%>
+
+<main class="container">
+  <div class="row mt-4">
+    <div class="col-md-12 m-auto"><%- include("../partials/flash.ejs") %></div>
+  </div>
+  <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#newStudent">New Student</button>
+
+  <div class="row">
+    <% students.forEach((student, index) => { %>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="card <%= student.gdCompleted %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= student.name %> (<%= student.registerNum %>)</h5>
+          <p class="card-subtitle"><%= student.department %></p>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <% const sum = parseInt(student.scores["subjectKnowledge"]) + parseInt(student.scores["communicationSkills"])
+          + parseInt(student.scores["bodyLanguage"]) + parseInt(student.scores["listeningSkills"]) +
+          parseInt(student.scores["criticalThinking"]) + parseInt(student.scores["leadershipSkills"]) %>
+          <li class="list-group-item">Total Score : <%= sum %> / 30</li>
+          <div class="card-body">
+            <button
+              type="button"
+              class="btn btn-info edit-student"
+              data-toggle="modal" 
+              data-target="#editStudent"
+              data-id="<%= student._id %>"
+              data-name="<%= student.name %>"
+              data-registerNum="<%= student.registerNum %>"
+              data-department="<%= student.department %>"
+              data-gdCompleted="<%= student.gdCompleted %>"
+              data-subjectKnowledge="<%= parseInt(student.scores["subjectKnowledge"]) %>" 
+              data-communicationSkills="<%= parseInt(student.scores["communicationSkills"]) %>" 
+              data-bodyLanguage="<%= parseInt(student.scores["bodyLanguage"]) %>" 
+              data-listeningSkills="<%= parseInt(student.scores["listeningSkills"]) %>" 
+              data-criticalThinking="<%= parseInt(student.scores["criticalThinking"]) %>" 
+              data-leadershipSkills="<%= parseInt(student.scores["leadershipSkills"]) %>" 
+            >
+              Edit
+            </button>
+            <button class="btn btn-warning delete-student" data-toggle="modal" data-target="#deleteStudent" data-id="<%= student._id %>">Delete</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <% }); %>
+  </div>
+</main>
+
+<%- include("./modals/new.ejs") %> 
+<%- include("./modals/edit.ejs") %> 
+<%- include("./modals/delete.ejs") %>

@@ -11,9 +11,8 @@
 
       <div class="modal-body">
         <p>Are you sure you want to delete this student?</p>
-        <form method="POST" action="">
+        <form method="POST" id="delete-student-form">
           <input type="hidden" name="_method" value="DELETE" />
-          <%- include("../../partials/form_fields.ejs"); %>
           <div class="modal-footer">
             <button type="submit" class="btn btn-danger">Yes</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>

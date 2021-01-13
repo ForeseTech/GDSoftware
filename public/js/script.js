@@ -12,14 +12,14 @@ const depts = {
 };
 
 const deptColors = {
-  AUT: '#073B4C',
+  AUT: '#433633',
   BIO: '#EF476F',
   CHE: '#C97C5D',
   CIV: '#FF36AB',
   CSE: '#9D44B5',
   EEE: '#E76F51',
   ECE: '#264653',
-  INT: '#1F1300',
+  INT: '#235789',
   MEC: '#982649',
 };
 

@@ -1,0 +1,137 @@
+[
+  {
+    "_id": "5d713995b721c3bb38c1f5d0",
+    "registerNum": 180801070,
+    "name": "Kushal Jain",
+    "department": "AUT",
+    "scores": {
+      "subjectKnowledge": "0",
+      "communicationSkills": "0",
+      "bodyLanguage": "0",
+      "listeningSkills": "0",
+      "criticalThinking": "0",
+      "leadershipSkills": "0"
+    },
+    "gdCompleted": false
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d1",
+    "registerNum": 180801071,
+    "name": "Bhavesh Sachdev",
+    "department": "BIO",
+    "scores": {
+      "subjectKnowledge": "2",
+      "communicationSkills": "2",
+      "bodyLanguage": "2",
+      "listeningSkills": "2",
+      "criticalThinking": "2",
+      "leadershipSkills": "1"
+    },
+    "gdCompleted": true
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d2",
+    "registerNum": 180801072,
+    "name": "Heenal Shah",
+    "department": "CHE",
+    "scores": {
+      "subjectKnowledge": "3",
+      "communicationSkills": "3",
+      "bodyLanguage": "3",
+      "listeningSkills": "3",
+      "criticalThinking": "3",
+      "leadershipSkills": "3"
+    },
+    "gdCompleted": true
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d3",
+    "registerNum": 180801073,
+    "name": "Nilesh D",
+    "department": "CIV",
+    "scores": {
+      "subjectKnowledge": "0",
+      "communicationSkills": "0",
+      "bodyLanguage": "0",
+      "listeningSkills": "0",
+      "criticalThinking": "0",
+      "leadershipSkills": "0"
+    },
+    "gdCompleted": false
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d4",
+    "registerNum": 180801074,
+    "name": "Khushi Vekaria",
+    "department": "CSE",
+    "scores": {
+      "subjectKnowledge": "0",
+      "communicationSkills": "0",
+      "bodyLanguage": "0",
+      "listeningSkills": "0",
+      "criticalThinking": "0",
+      "leadershipSkills": "0"
+    },
+    "gdCompleted": false
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d5",
+    "registerNum": 180801075,
+    "name": "Mudit Baid",
+    "department": "ECE",
+    "scores": {
+      "subjectKnowledge": "1",
+      "communicationSkills": "3",
+      "bodyLanguage": "2",
+      "listeningSkills": "4",
+      "criticalThinking": "5",
+      "leadershipSkills": "1"
+    },
+    "gdCompleted": true
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d6",
+    "registerNum": 180801076,
+    "name": "Kailash Jagadeesh",
+    "department": "EEE",
+    "scores": {
+      "subjectKnowledge": "0",
+      "communicationSkills": "0",
+      "bodyLanguage": "0",
+      "listeningSkills": "0",
+      "criticalThinking": "0",
+      "leadershipSkills": "0"
+    },
+    "gdCompleted": false
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d7",
+    "registerNum": 180801077,
+    "name": "Sumit Samantray",
+    "department": "INT",
+    "scores": {
+      "subjectKnowledge": "2",
+      "communicationSkills": "3",
+      "bodyLanguage": "3",
+      "listeningSkills": "3",
+      "criticalThinking": "4",
+      "leadershipSkills": "1"
+    },
+    "gdCompleted": true
+  },
+  {
+    "_id": "5d713995b721c3bb38c1f5d8",
+    "registerNum": 180801078,
+    "name": "Abhinaya Kalyan",
+    "department": "MEC",
+    "scores": {
+      "subjectKnowledge": "1",
+      "communicationSkills": "1",
+      "bodyLanguage": "4",
+      "listeningSkills": "3",
+      "criticalThinking": "1",
+      "leadershipSkills": "2"
+    },
+    "gdCompleted": true
+  }
+]

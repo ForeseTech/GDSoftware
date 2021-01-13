@@ -12,15 +12,15 @@ const depts = {
 };
 
 const deptColors = {
-  AUT: '#00A878',
-  BIO: '#00A878',
-  CHE: '#D62839',
-  CIV: '#D62839',
-  CSE: '#4B3832',
-  EEE: '#F26419',
-  ECE: '#7A3B69',
-  INT: '#FDCA40',
-  MEC: '#2191FB',
+  AUT: '#073B4C',
+  BIO: '#EF476F',
+  CHE: '#C97C5D',
+  CIV: '#FF36AB',
+  CSE: '#9D44B5',
+  EEE: '#E76F51',
+  ECE: '#264653',
+  INT: '#1F1300',
+  MEC: '#982649',
 };
 
 for (let i = 0; i < departments.length; i++) {

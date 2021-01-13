@@ -7,7 +7,10 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
+
 const Database = require('./config/database');
+
+const Student = require('./models/Student');
 
 const memberRouter = require('./routes/members');
 const studentRouter = require('./routes/students');
@@ -65,8 +68,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
-  res.render('members/index');
+app.get('/', async (req, res, next) => {
+  const students = await Student.find({}).sort('-createdAt');
+  res.render('students/index', { students });
 });
 
 app.route('/', (req, res, next) => {});

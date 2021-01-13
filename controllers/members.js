@@ -7,46 +7,26 @@ const renderRegister = (req, res, next) => {
   res.render('members/register');
 };
 
-const registerMember = (req, res, next) => {
+const registerMember = async (req, res, next) => {
   const { name, email, password, password2 } = req.body;
 
-  // Check passwords match
+  // Check if passwords match
   if (password !== password2) {
     req.flash('error', 'Passwords do not match.');
     return res.redirect('members/register');
   }
 
   // Validation passed
-  Member.findOne({ email: email }).then((member) => {
-    if (member) {
-      // Member exists
-      req.flash('error', 'E-Mail ID already exists');
-      return res.redirect('/members/register');
-    } else {
-      const newMember = new Member({
-        name,
-        email,
-        password,
-      });
+  const member = await Member.findOne({ email: email });
 
-      // Hash Password
-      bcrypt.genSalt(10, (err, salt) =>
-        bcrypt.hash(newMember.password, salt, (err, hash) => {
-          if (err) throw err;
-          // Set password to hashed
-          newMember.password = hash;
-          // Save Member
-          newMember
-            .save()
-            .then((member) => {
-              req.flash('success', `Welcome, ${member.name}`);
-              res.redirect('/');
-            })
-            .catch((err) => console.log(err));
-        })
-      );
-    }
-  });
+  if (member) {
+    req.flash('error', 'E-Mail ID already exists');
+    return res.redirect('/members/register');
+  } else {
+    await Member.create({ name, email, password });
+    req.flash('success', `Welcome, Home`);
+    res.redirect('/');
+  }
 };
 
 const renderLogin = (req, res, next) => {

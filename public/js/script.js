@@ -1,4 +1,5 @@
-const departments = document.querySelectorAll('.card-subtitle');
+const cardDepartments = document.querySelectorAll('.card-subtitle');
+const tableDepartments = document.querySelectorAll('table tbody tr td:nth-child(3)');
 const depts = {
   AUT: 'Automobile Engineering',
   BIO: 'Biotechnology',
@@ -11,22 +12,11 @@ const depts = {
   MEC: 'Mechanical Engineering',
 };
 
-const deptColors = {
-  AUT: '#433633',
-  BIO: '#EF476F',
-  CHE: '#C97C5D',
-  CIV: '#FF36AB',
-  CSE: '#9D44B5',
-  EEE: '#E76F51',
-  ECE: '#264653',
-  INT: '#235789',
-  MEC: '#982649',
-};
-
-for (let i = 0; i < departments.length; i++) {
-  let department = departments[i].innerText;
-  departments[i].style.backgroundColor = deptColors[department];
-  departments[i].innerText = depts[department];
+for (let i = 0; i < cardDepartments.length; i++) {
+  let department = cardDepartments[i].innerText;
+  cardDepartments[i].style.backgroundColor = '#9D44B5';
+  cardDepartments[i].innerText = depts[department];
+  // tableDepartments[i].innerText = depts[department];
 }
 
 // Populate edit modal with data
@@ -82,5 +72,18 @@ for (let i = 0; i < deleteBtns.length; i++) {
   deleteBtns[i].addEventListener('click', function () {
     const deleteForm = document.getElementById('delete-student-form');
     deleteForm.action = `/students/${this.getAttribute('data-id')}`;
+  });
+}
+
+const viewType = document.querySelectorAll("input[name='viewType']");
+for (let i = 0; i < viewType.length; i++) {
+  viewType[i].addEventListener('change', function () {
+    if (viewType[i].value === 'table') {
+      document.querySelector('table').classList.remove('d-none');
+      document.querySelector('#students').classList.add('d-none');
+    } else if (viewType[i].value === 'card') {
+      document.querySelector('table').classList.add('d-none');
+      document.querySelector('#students').classList.remove('d-none');
+    }
   });
 }

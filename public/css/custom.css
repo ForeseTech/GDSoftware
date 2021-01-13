@@ -19,7 +19,7 @@
 .card-subtitle {
   padding: 0.1rem 1rem;
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-top: 0;
   color: #fff;
   border-radius: 1rem;
@@ -27,11 +27,66 @@
 }
 
 .false {
-  border: 3px solid red;
+  border: 2px solid red;
+}
+
+.bg-false {
+  background-color: rgba(255, 0, 0, 0.3);
 }
 
 .true {
-  border: 3px solid green;
+  border: 2px solid green;
+}
+
+.bg-true {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.table {
+  table-layout: fixed;
+}
+
+input#card[type='radio'],
+input#table[type='radio'] {
+  display: none;
+}
+
+label[for='card'],
+label[for='table'] {
+  margin-left: 1rem;
+  color: #eb6534;
+  font-size: 1.2rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+input[type='radio']:checked + label {
+  background-color: #eb6534;
+  color: white;
+}
+
+.new-student {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 0.4rem;
+  z-index: 1;
+  color: #e95420;
+  cursor: pointer;
+}
+
+@media (max-width: 512px) {
+  .table {
+    table-layout: auto;
+  }
+
+  .table tbody tr td:nth-child(5) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (min-width: 768px) {

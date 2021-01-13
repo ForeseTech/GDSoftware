@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "5d713995b721c3bc38c1f5e1",
+    "name": "Nilesh D",
+    "email": "nilesh@gmail.com",
+    "password": "123456"
+  },
+  {
+    "_id": "5d713995b721c3bc38c1f5e2",
+    "name": "Joann Nittika",
+    "email": "joann@gmail.com",
+    "password": "123456"
+  },
+  {
+    "_id": "5d713995b721c3bc38c1f5e3",
+    "name": "Govind",
+    "email": "govind@gmail.com",
+    "password": "123456"
+  }
+]

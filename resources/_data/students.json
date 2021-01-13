@@ -12,7 +12,8 @@
       "criticalThinking": "0",
       "leadershipSkills": "0"
     },
-    "gdCompleted": false
+    "gdCompleted": false,
+    "member": "5d713995b721c3bc38c1f5e1"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d1",
@@ -27,7 +28,8 @@
       "criticalThinking": "2",
       "leadershipSkills": "1"
     },
-    "gdCompleted": true
+    "gdCompleted": true,
+    "member": "5ffea0c941a0ef275c700fe2"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d2",
@@ -42,7 +44,8 @@
       "criticalThinking": "3",
       "leadershipSkills": "3"
     },
-    "gdCompleted": true
+    "gdCompleted": true,
+    "member": "5d713995b721c3bc38c1f5e1"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d3",
@@ -57,7 +60,8 @@
       "criticalThinking": "0",
       "leadershipSkills": "0"
     },
-    "gdCompleted": false
+    "gdCompleted": false,
+    "member": "5d713995b721c3bc38c1f5e1"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d4",
@@ -72,7 +76,8 @@
       "criticalThinking": "0",
       "leadershipSkills": "0"
     },
-    "gdCompleted": false
+    "gdCompleted": false,
+    "member": "5d713995b721c3bc38c1f5e2"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d5",
@@ -87,7 +92,8 @@
       "criticalThinking": "5",
       "leadershipSkills": "1"
     },
-    "gdCompleted": true
+    "gdCompleted": true,
+    "member": "5d713995b721c3bc38c1f5e2"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d6",
@@ -102,7 +108,8 @@
       "criticalThinking": "0",
       "leadershipSkills": "0"
     },
-    "gdCompleted": false
+    "gdCompleted": false,
+    "member": "5d713995b721c3bc38c1f5e3"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d7",
@@ -117,7 +124,8 @@
       "criticalThinking": "4",
       "leadershipSkills": "1"
     },
-    "gdCompleted": true
+    "gdCompleted": true,
+    "member": "5d713995b721c3bc38c1f5e3"
   },
   {
     "_id": "5d713995b721c3bb38c1f5d8",
@@ -132,6 +140,7 @@
       "criticalThinking": "1",
       "leadershipSkills": "2"
     },
-    "gdCompleted": true
+    "gdCompleted": true,
+    "member": "5d713995b721c3bc38c1f5e3"
   }
 ]

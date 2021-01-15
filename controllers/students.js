@@ -1,6 +1,7 @@
 const Student = require('../models/Student');
+const asyncHandler = require('../middleware/async');
 
-const createStudent = async (req, res, next) => {
+const createStudent = asyncHandler(async (req, res, next) => {
   const { registerNum, name, department, gdCompleted } = req.body;
 
   let scores = {};
@@ -15,9 +16,9 @@ const createStudent = async (req, res, next) => {
 
   req.flash('success', 'Student Successfully Created');
   res.redirect('/');
-};
+});
 
-const updateStudent = async (req, res, next) => {
+const updateStudent = asyncHandler(async (req, res, next) => {
   const { registerNum, name, department } = req.body;
   let { gdCompleted } = req.body;
 
@@ -41,13 +42,13 @@ const updateStudent = async (req, res, next) => {
 
   req.flash('success', 'Student Successfully Updated');
   res.redirect('/');
-};
+});
 
-const deleteStudent = async (req, res, next) => {
+const deleteStudent = asyncHandler(async (req, res, next) => {
   await Student.findByIdAndDelete(req.params.id);
   req.flash('success', 'Student Successfully Deleted');
   res.redirect('/');
-};
+});
 
 module.exports = {
   createStudent,

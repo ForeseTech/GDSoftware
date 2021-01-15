@@ -1,26 +1,21 @@
 const path = require('path');
 const express = require('express');
-const dotenv = require('dotenv').config();
-const colors = require('colors');
 const morgan = require('morgan');
 const session = require('express-session');
-const passport = require('passport');
+const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
-
-const Database = require('./config/database');
 
 const Student = require('./models/Student');
 
 const memberRouter = require('./routes/members');
 const studentRouter = require('./routes/students');
 
-const { isLoggedIn } = require('./middleware');
+const isLoggedIn = require('./middleware/auth');
+const errorHandler = require('./middleware/error');
 
-// Passport Config
-require('./config/passport')(passport);
-
+// Instantiate express app
 const app = express();
 
 // Views and View Engine
@@ -53,9 +48,15 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // express-session middleware
 const sessionConfig = {
-  secret: process.env.SESSION_SECRET,
-  resave: true,
+  secret: 'secret',
+  resave: false,
   saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  },
+  // store: new MongoStore({ mongooseConnection: mongoose.connection }),
 };
 app.use(session(sessionConfig));
 
@@ -69,9 +70,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
+// Cookie parser middleware
+app.use(cookieParser());
 
 app.get('/', isLoggedIn, async (req, res, next) => {
   const students = await Student.find({ member: req.user._id }).sort('-createdAt');
@@ -81,8 +81,7 @@ app.get('/', isLoggedIn, async (req, res, next) => {
 app.use('/members', memberRouter);
 app.use('/students', studentRouter);
 
-const PORT = process.env.PORT || 3000;
+// Error handling middleware
+app.use(errorHandler);
 
-const server = app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV.underline} mode on port ${PORT}.`.yellow.bold);
-});
+module.exports = app;

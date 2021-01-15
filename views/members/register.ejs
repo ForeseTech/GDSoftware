@@ -4,11 +4,11 @@
   <div class="row mt-4">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
-        <h1 class="text-center m-0">Register</h1>
+        <h1 class="text-center m-0 mb-3">Register</h1>
 
         <%- include("../partials/flash.ejs") %>
 
-        <form action="/members/register" method="POST" class="validated-form" novalidate>
+        <form action="/members/register" method="POST" class="needs-validation" novalidate>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" autofocus required />

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { isLoggedIn } = require('../middleware');
+const isLoggedIn = require('../middleware/auth');
 
 const { createStudent, updateStudent, deleteStudent } = require('../controllers/students');
 

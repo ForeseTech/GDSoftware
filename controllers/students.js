@@ -4,6 +4,13 @@ const asyncHandler = require('../middleware/async');
 const createStudent = asyncHandler(async (req, res, next) => {
   const { registerNum, name, department, gdCompleted } = req.body;
 
+  Student.findOne({ registerNum: registerNum }).then((student) => {
+    if (student) {
+      req.flash('error', 'This student already exists in the database.');
+      return res.redirect('/');
+    }
+  });
+
   let scores = {};
   scores['subjectKnowledge'] = req.body.subjectKnowledge ? req.body.subjectKnowledge : 0;
   scores['communicationSkills'] = req.body.communicationSkills ? req.body.communicationSkills : 0;

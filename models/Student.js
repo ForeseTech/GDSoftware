@@ -5,6 +5,7 @@ const StudentSchema = mongoose.Schema(
     registerNum: {
       type: Number,
       required: true,
+      unique: true,
     },
 
     name: {

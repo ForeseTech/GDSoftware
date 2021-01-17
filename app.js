@@ -76,7 +76,7 @@ app.use(cookieParser());
 app.get('/', isLoggedIn, async (req, res, next) => {
   let students;
 
-  if (req.user.name === 'Admin') {
+  if (req.user.name === process.env.ADMIN_NAME) {
     students = await Student.find({}).sort('-createdAt');
   } else {
     students = await Student.find({ member: req.user._id }).sort('-createdAt');

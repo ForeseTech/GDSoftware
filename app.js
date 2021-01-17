@@ -74,7 +74,13 @@ app.use((req, res, next) => {
 app.use(cookieParser());
 
 app.get('/', isLoggedIn, async (req, res, next) => {
-  const students = await Student.find({ member: req.user._id }).sort('-createdAt');
+  let students;
+
+  if (req.user.name === 'Admin') {
+    students = await Student.find({}).sort('-createdAt');
+  } else {
+    students = await Student.find({ member: req.user._id }).sort('-createdAt');
+  }
   res.render('students/index', { students, member: req.user });
 });
 

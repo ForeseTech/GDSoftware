@@ -87,21 +87,29 @@ input[type='radio']:checked + label {
   position: fixed;
   right: 0;
   bottom: 0;
-  padding: 0.4rem;
+  padding: 3.5rem;
+  padding-right: 2rem;
   z-index: 1;
   color: #e95420;
   cursor: pointer;
 }
 
 footer {
+  display: block;
   position: fixed;
+  text-align: center;
+  background-color: #f8f9fa;
   bottom: 0;
-  height: 45px;
-  line-height: 45px;
+  padding: 0.65rem 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 512px) {
+  body {
+    padding-bottom: 8rem;
+  }
+
   .table {
     table-layout: auto;
   }
@@ -110,6 +118,11 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .new-student {
+    padding-right: 1rem;
+    padding-bottom: 5rem;
   }
 }
 

@@ -27,25 +27,22 @@
     </ul>
   </div>
 </nav>
-    
+
 <main class="container">
-  <div class="mt-2">
-    <%- include("../partials/flash.ejs") %>
-    </div>
+  <div class="mt-2"><%- include("../partials/flash.ejs") %></div>
 
-    <i class="fas fa-plus-circle fa-4x new-student" data-toggle="modal" data-target="#newStudent"></i>
+  <i class="fas fa-plus-circle fa-4x new-student" data-toggle="modal" data-target="#newStudent"></i>
 
-    <div class="row my-2">
-        <input type="radio" name="viewType" id="card" value="card" checked>
-        <label for="card">Card View</label>
+  <div class="row my-2">
+    <input type="radio" name="viewType" id="card" value="card" checked />
+    <label for="card">Card View</label>
 
-        <input type="radio" name="viewType" id="table" value="table">
-        <label for="table">Table View</label>
-    </div>
-  
-  <% if(students && students.length) { %> 
-  <div class="row" id="students">  
+    <input type="radio" name="viewType" id="table" value="table" />
+    <label for="table">Table View</label>
+  </div>
 
+  <% if(students && students.length) { %>
+  <div class="row" id="students">
     <% students.forEach((student, index) => { %>
     <div class="col-md-4 col-sm-6">
       <div class="card <%= student.gdCompleted %>">
@@ -59,82 +56,40 @@
           + parseInt(student.scores["bodyLanguage"]) + parseInt(student.scores["listeningSkills"]) +
           parseInt(student.scores["criticalThinking"]) + parseInt(student.scores["leadershipSkills"]) %>
           <li class="list-group-item"><b>Total Score : </b><%= sum %> / 30</li>
-          <div class="card-body">
-            <button
-              type="button"
-              class="btn btn-secondary edit-student"
-              data-toggle="modal" 
-              data-target="#editStudent"
-              data-id="<%= student._id %>"
-              data-name="<%= student.name %>"
-              data-registerNum="<%= student.registerNum %>"
-              data-department="<%= student.department %>"
-              data-gdCompleted="<%= student.gdCompleted %>"
-              data-subjectKnowledge="<%= parseInt(student.scores["subjectKnowledge"]) %>" 
-              data-communicationSkills="<%= parseInt(student.scores["communicationSkills"]) %>" 
-              data-bodyLanguage="<%= parseInt(student.scores["bodyLanguage"]) %>" 
-              data-listeningSkills="<%= parseInt(student.scores["listeningSkills"]) %>" 
-              data-criticalThinking="<%= parseInt(student.scores["criticalThinking"]) %>" 
-              data-leadershipSkills="<%= parseInt(student.scores["leadershipSkills"]) %>" 
-            >
-              Edit
-            </button>
-            <button class="btn btn-warning delete-student" data-toggle="modal" data-target="#deleteStudent" data-id="<%= student._id %>">Delete</button>
-          </div>
+          <div class="card-body"><%- include("../partials/buttons.ejs", {student: student}) %></div>
         </ul>
       </div>
     </div>
     <% }); %>
   </div>
   <table class="table table-bordered table-responsive d-none">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Register Number</th>
-          <th>Department</th>
-          <th>Score</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% students.forEach((student, index) => { %>
-        <tr class="bg-<%= student.gdCompleted %>">
-          <% const sum = parseInt(student.scores["subjectKnowledge"]) + parseInt(student.scores["communicationSkills"])
-          + parseInt(student.scores["bodyLanguage"]) + parseInt(student.scores["listeningSkills"]) +
-          parseInt(student.scores["criticalThinking"]) + parseInt(student.scores["leadershipSkills"]) %> 
-          <td><%= student.name %></td>
-          <td><%= student.registerNum %></td>
-          <td><%= student.department %></td>
-          <td><%= sum %></td>
-          <td><button
-              type="button"
-              class="btn btn-secondary edit-student mr-3"
-              data-toggle="modal" 
-              data-target="#editStudent"
-              data-id="<%= student._id %>"
-              data-name="<%= student.name %>"
-              data-registerNum="<%= student.registerNum %>"
-              data-department="<%= student.department %>"
-              data-gdCompleted="<%= student.gdCompleted %>"
-              data-subjectKnowledge="<%= parseInt(student.scores["subjectKnowledge"]) %>" 
-              data-communicationSkills="<%= parseInt(student.scores["communicationSkills"]) %>" 
-              data-bodyLanguage="<%= parseInt(student.scores["bodyLanguage"]) %>" 
-              data-listeningSkills="<%= parseInt(student.scores["listeningSkills"]) %>" 
-              data-criticalThinking="<%= parseInt(student.scores["criticalThinking"]) %>" 
-              data-leadershipSkills="<%= parseInt(student.scores["leadershipSkills"]) %>" 
-            >
-              Edit
-            </button>
-            <button class="btn btn-warning delete-student" data-toggle="modal" data-target="#deleteStudent" data-id="<%= student._id %>">Delete</button></td>
-        </tr>
-        <% }); %> 
-      </tbody>
-    </table>
-  <% } else { %> 
-    <p>You have not created any students yet.</p>
-  <% } %> 
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Register Number</th>
+        <th>Department</th>
+        <th>Score</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach((student, index) => { %>
+      <tr class="bg-<%= student.gdCompleted %>">
+        <% const sum = parseInt(student.scores["subjectKnowledge"]) + parseInt(student.scores["communicationSkills"]) +
+        parseInt(student.scores["bodyLanguage"]) + parseInt(student.scores["listeningSkills"]) +
+        parseInt(student.scores["criticalThinking"]) + parseInt(student.scores["leadershipSkills"]) %>
+        <td><%= student.name %></td>
+        <td><%= student.registerNum %></td>
+        <td><%= student.department %></td>
+        <td><%= sum %></td>
+        <td><%- include("../partials/buttons.ejs", {student: student}) %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <p>You have not created any students yet.</p>
+  <% } %>
 </main>
 
-<%- include("./modals/new.ejs") %> 
-<%- include("./modals/edit.ejs") %> 
-<%- include("./modals/delete.ejs") %>
+<%- include("./modals/new.ejs") %> <%- include("./modals/edit.ejs") %> <%- include("./modals/delete.ejs") %>

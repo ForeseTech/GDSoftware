@@ -1,0 +1,24 @@
+<button
+  type="button"
+  class="btn btn-secondary edit-student mr-1"
+  data-toggle="modal" 
+  data-target="#editStudent"
+  data-id="<%= student._id %>"
+  data-name="<%= student.name %>"
+  data-registerNum="<%= student.registerNum %>"
+  data-department="<%= student.department %>"
+  data-gdCompleted="<%= student.gdCompleted %>"
+  data-subjectKnowledge="<%= parseInt(student.scores["subjectKnowledge"]) %>" 
+  data-communicationSkills="<%= parseInt(student.scores["communicationSkills"]) %>" 
+  data-bodyLanguage="<%= parseInt(student.scores["bodyLanguage"]) %>" 
+  data-listeningSkills="<%= parseInt(student.scores["listeningSkills"]) %>" 
+  data-criticalThinking="<%= parseInt(student.scores["criticalThinking"]) %>" 
+  data-leadershipSkills="<%= parseInt(student.scores["leadershipSkills"]) %>" 
+>Edit</button>
+
+<button 
+  class="btn btn-warning delete-student" 
+  data-toggle="modal" 
+  data-target="#deleteStudent" 
+  data-id="<%= student._id %>"
+>Delete</button>

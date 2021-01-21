@@ -93,6 +93,14 @@ input[type='radio']:checked + label {
   cursor: pointer;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 45px;
+  line-height: 45px;
+  width: 100%;
+}
+
 @media (max-width: 512px) {
   .table {
     table-layout: auto;

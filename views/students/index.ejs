@@ -62,9 +62,10 @@
     </div>
     <% }); %>
   </div>
-  <table class="table table-bordered d-none">
+  <table class="table table-bordered d-none" id="data">
     <thead>
       <tr>
+        <th>SNO</th>
         <th>Name</th>
         <th>Register Number</th>
         <th>Department</th>
@@ -78,6 +79,7 @@
         <% const sum = parseInt(student.scores["subjectKnowledge"]) + parseInt(student.scores["communicationSkills"]) +
         parseInt(student.scores["bodyLanguage"]) + parseInt(student.scores["listeningSkills"]) +
         parseInt(student.scores["criticalThinking"]) + parseInt(student.scores["leadershipSkills"]) %>
+        <td><%= index + 1 %></td>
         <td><%= student.name %></td>
         <td><%= student.registerNum %></td>
         <td><%= student.department %></td>
@@ -93,3 +95,8 @@
 </main>
 
 <%- include("./modals/new.ejs") %> <%- include("./modals/edit.ejs") %> <%- include("./modals/delete.ejs") %>
+<script>
+  $(document).ready(function () {
+    $('#data').DataTable();
+  });
+</script>

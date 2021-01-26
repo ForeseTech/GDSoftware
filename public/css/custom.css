@@ -2,6 +2,10 @@
   font-family: 'Lato', sans-serif;
 }
 
+body {
+  padding-bottom: 3rem;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -87,8 +91,7 @@ input[type='radio']:checked + label {
   position: fixed;
   right: 0;
   bottom: 0;
-  padding: 3.5rem;
-  padding-right: 2rem;
+  padding: 1rem;
   z-index: 1;
   color: #e95420;
   cursor: pointer;
@@ -121,8 +124,7 @@ footer {
   }
 
   .new-student {
-    padding-right: 1rem;
-    padding-bottom: 5rem;
+    padding: 1rem;
   }
 }
 
